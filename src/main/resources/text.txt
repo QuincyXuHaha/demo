@@ -1,0 +1,44 @@
+
+xgqhe@LAPTOP-MHS1O26K MINGW64 /d/xiaoxiang/programcode/sh/demo/target/classes/com/example/demo/main (master)
+$ javap -c Syn.class
+Compiled from "Syn.java"
+public class com.example.demo.main.VolatileSample {
+  public com.example.demo.main.VolatileSample();
+    Code:
+       0: aload_0
+       1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+       4: return
+
+  public synchronized void m1();
+    Code:
+       0: return
+
+  public static synchronized void m2();
+    Code:
+       0: return
+
+  public void m3();
+    Code:
+       0: aload_0
+       1: dup
+       2: astore_1
+       3: monitorenter
+       4: getstatic     #2                  // Field java/lang/System.out:Ljava/io/PrintStream;
+       7: invokevirtual #3                  // Method java/io/PrintStream.println:()V
+      10: aload_1
+      11: monitorexit
+      12: goto          20
+      15: astore_2
+      16: aload_1
+      17: monitorexit
+      18: aload_2
+      19: athrow
+      20: return
+    Exception table:
+       from    to  target type
+           4    12    15   any
+          15    18    15   any
+}
+
+xgqhe@LAPTOP-MHS1O26K MINGW64 /d/xiaoxiang/programcode/sh/demo/target/classes/com/example/demo/main (master)
+$
